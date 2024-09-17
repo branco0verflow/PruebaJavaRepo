@@ -16,6 +16,8 @@ public class Main {
 
         File archivoJson = new File("Json.json");
 
+        String string = "lola";
+
 
 
 
