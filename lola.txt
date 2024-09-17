@@ -1,0 +1,50 @@
+Scanner sc = new Scanner(System.in);
+        File nuevoTxt = new File("estudiantes.txt");
+        FileWriter escribe = new FileWriter(nuevoTxt);
+
+        boolean isValid = false;
+        boolean salir = false;
+
+        while (!salir){
+
+            while(!isValid){
+
+                try {
+                    System.out.print("BIENVENIDO A GESTIÓN DE ESTUDIANTES\n\nIngrese nombre del Estudiante: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Ingrese la edad: ");
+                    int edad = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Ingrese la calificación: ");
+                    int calificacion = sc.nextInt();
+                    sc.nextLine();
+                    String estudiante = "Nombre: " + nombre + " Edad: " + edad + " Calificación: " + calificacion;
+                    escribe.write(estudiante + "\n");
+
+                    System.out.print("Presione: \nS para salir\n0 para continuar creando: ");
+                    String opcion = sc.nextLine();
+                    if(opcion.equalsIgnoreCase("S")){
+                        isValid = true;
+                        salir = true;
+                        escribe.close();
+                    }
+                }catch (InputMismatchException e){
+                    System.out.println("Debes ingresar un número!" + e);
+                }catch (IOException e){
+                    System.out.println("Ocurrió un error con la entrada de los datos, intente nuevamente!" + e);
+                }
+
+            }
+
+        }
+
+        System.out.println("ESTOS SON LOS ESTUDIANTES LISTADOS: \n\n");
+
+        Scanner leer = new Scanner(nuevoTxt);
+
+        while (leer.hasNextLine()){
+            String linea = leer.nextLine();
+            System.out.println(linea);
+        }
+
+        sc.close();

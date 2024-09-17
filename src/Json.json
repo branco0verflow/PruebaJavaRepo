@@ -1,0 +1,15 @@
+{
+  "server": {
+    "name": "ServidorPrincipal",
+    "port": 8080
+  },
+  "database": {
+    "host": "localhost",
+    "port": 3306,
+    "name": "miDB",
+    "credentials": {
+      "username": "admin",
+      "password": "password123"
+    }
+  }
+}
